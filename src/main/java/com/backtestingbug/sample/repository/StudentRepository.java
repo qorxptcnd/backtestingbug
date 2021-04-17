@@ -1,8 +1,8 @@
-package com.backtestingbug.backtest.repository;
+package com.backtestingbug.sample.repository;
 
-import com.backtestingbug.backtest.entity.Test;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import com.backtestingbug.sample.entity.Student;
 
 /**
  * @author : gkgjs
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
  * @description :
  */
 @Repository
-public interface TestRepository extends JpaRepository<Test, String> {
+public interface StudentRepository extends JpaRepository<Student,Long> {
 }
