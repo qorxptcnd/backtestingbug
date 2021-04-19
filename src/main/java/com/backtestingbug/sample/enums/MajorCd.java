@@ -8,12 +8,13 @@ import lombok.Getter;
  * @author : gkgjs
  * @version : 1.0.0
  * @date : 2021-04-17
- * @description :
+ * @description : 전공코드
  */
 @Getter
 @AllArgsConstructor
 public enum MajorCd {
 
+    ALL("ZZ","ALL"),
     CS("10","컴퓨터공학"),
     LAW("20","법학"),
     ;

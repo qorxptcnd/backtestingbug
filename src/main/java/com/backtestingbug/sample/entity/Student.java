@@ -1,7 +1,10 @@
 package com.backtestingbug.sample.entity;
 
 import com.backtestingbug.sample.enums.MajorCd;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -13,12 +16,15 @@ import javax.persistence.*;
  */
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "student")
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
 
     @Column(length = 100)
     private String name;
