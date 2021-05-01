@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: local
+
+  batch:
+    job:
+      names: ${job.name:NONE}
+
+  jpa:
+    generate-ddl: false
+    datadase: mysql
+    hibernate:
+      ddl-auto: none
+      show_sql: true
+      format_sql: true
+      database-platform: org.hibernate.dialect.MySQLDialect
+
+  datasource:
+    initialization-mode: always
+#    schema: classpath*:/local/schema.sql
+#    data: classpath*:/local/data.sql
+    hikari:
+      driver-class-name: org.mariadb.jdbc.Driver
+      jdbc-url: jdbc:mariadb://localhost:3306/backtestingbug?characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: root!
+      connectionTimeout: 30000
+      maximumPoolSize: 50
+      maxLifeTime: 1800000

@@ -17,9 +17,21 @@ plugins {
 	id 'java'
 }
 
+
+ext.profile = (!project.hasProperty('profile') || !profile) ? 'local' : profile
+
+sourceSets {
+	main {
+		resources {
+			srcDirs("src/main/resources","src/main/resources/${profile}")
+		}
+	}
+}
+
+
 group = 'com.backtestingbug'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '8'
 
 configurations {
 	compileOnly {
@@ -32,10 +44,16 @@ repositories {
 }
 
 dependencies {
+	//SpringBoot
 	implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa')
 	implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-web')
 	implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-validation')
+	implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-batch')
+
+	//SpringBoot Test
 	testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test')
+	testImplementation(group: 'org.springframework.batch', name: 'spring-batch-test')
+
 
 	//lombok
 	compileOnly 'org.projectlombok:lombok'
@@ -50,6 +68,9 @@ dependencies {
 
 	//hikariCP
 	implementation(group: 'org.hibernate', name: 'hibernate-hikaricp')
+
+	//yahoo finance api
+	implementation(group: 'com.yahoofinance-api', name: 'YahooFinanceAPI', version: '3.15.0')
 }
 
 test {

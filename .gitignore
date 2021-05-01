@@ -15,7 +15,7 @@ out/
 !**/src/test/**/out/
 
 ## configuration ##
-src/main/resources/application.yaml
+src/main/resources/prod
 
 ## DB Configuration ##
 db
