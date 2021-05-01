@@ -19,20 +19,22 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "student")
+@Entity(name = "STUDENT")
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
 
-    @Column(length = 100)
+    @Column(name = "NAME", length = 100)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "AGE", nullable = false)
     private Long age;
 
-    @Column
+    @Column(name = "MAJOR_CD")
     @Enumerated(EnumType.STRING)
     private MajorCd majorCd;
+
 }
