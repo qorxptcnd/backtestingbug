@@ -28,7 +28,7 @@ deploy:
     acl: public_read
     wait-until-deployed: true
     on:
-      repo: qorxptcnd/backtestingbug.git #Github 주소
+      repo: qorxptcnd/backtestingbug #Github 주소
       branch: main
 
 
