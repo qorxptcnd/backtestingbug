@@ -33,7 +33,18 @@ deploy:
     acl: private # zip 파일 접근을 private으로
     local_dir: deploy # before_deploy에서 생성한 디렉토리 # (6)
     wait-until-deployed: true
-
+  
+  - provider: codedeploy 
+    access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo setting에 설정된 값
+    bucket: backtestbug-springboot-webservice-deploy # S3 버킷
+    key: backtestbug-springboot-webservice.zip
+    bundle_type: zip
+    application: backtestbug-springboot-webservice
+    deployment_group: backtestbug-springboot-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+    
 # CI 실행 완료시 메일로 알람
 notifications:
   email:
